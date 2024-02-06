@@ -78,7 +78,7 @@ class IndeedAutoApplyBot():
                             actual_job.click()
                             # Apply for job.
                             time.sleep(5)
-                            # self.apply_job()
+                            # self.navigate_to_job()
                     else:
                         print("Job does not have 'Easily apply', skipped.")
                 except NoSuchElementException:
@@ -126,8 +126,8 @@ class IndeedAutoApplyBot():
         except (TimeoutException, NoSuchElementException):
             print("No modal found or not clickable.")
 
-    def apply_job(self) -> None:
-        """Apply for the job online"""
+    def navigate_to_job(self) -> None:
+        """Navigate to job tab"""
         try:
             # Wait for the apply button to be clickable
             WebDriverWait(self.browser, 10).until(
@@ -164,6 +164,10 @@ class IndeedAutoApplyBot():
             # Handle the case where the apply button is not found
             print("Apply button not found for this job, skipping...")
             # Optionally, you could add more logic here to handle different scenarios
+
+    def apply_job(self):
+        """Apply for the job"""
+        pass
 
 
 bot = IndeedAutoApplyBot()
